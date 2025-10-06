@@ -1,114 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title> My introduction</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mset Phylix Calculator</title>
   <style>
     body {
-      background-color: #f9f9f9;
-      font-family: sans-serif;
+      background: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      position: relative;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
       text-align: center;
-      padding: 50px;
+      width: 300px;
+      overflow: hidden;
     }
-    h1 {
-      color: #2c3e50;
+
+    .calculator::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/Mset\ Book-photo.jpg.jpeg'); 
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px);
+      z-index: 0;
     }
-    p {
+
+    .calculator * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    #display {
+      width: 100%;
+      height: 40px;
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: right;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 15px;
       font-size: 18px;
-      color: #555;
-      max-width: 600px;
-      margin: auto;
-      
+      border: none;
+      background: rgba(0, 119, 204, 0.8);
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: rgba(0, 95, 163, 0.9);
+    }
+
+    .result-label {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    #result {
+      font-size: 24px;
+      margin-top: 5px;
+      color: #fff;
+      text-shadow: 1px 1px 2px black;
     }
   </style>
 </head>
 <body>
-  <h1>Hello!🤗 I am Mset Phylix.</h1>
-  
-  <br/>
-  <img src="/mset-photo.jpg.jpeg" alt="Mset Photo" height="200" />
-  <img src="/Mset-photo2.jpg.jpeg"alt="Mset Photo" height="200" />
-  
-  <br/>
-  <br/>
-  <br/>
-  
-  
-  <big><b>MY INTRODUCTION ❤️</b></big>
+  <div class="calculator">
+    <h2>Mset Phylix</h2>
+    <input type="text" id="display" disabled />
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="appendValue('(')">(</button>
+      <button onclick="appendValue(')')">)</button>
+      <button onclick="appendValue('/')">÷</button>
 
-  <br/>
-  <hr/>
-  <big>Name =<u><i> Madhav Khanal </i></u>(Mset Phylix)</big>
-  <br/>
-  <big>Sex = Male</big>
-  <br/>
-  <big>Address = Kathmandu, Nepal</big>
-  <br/>
-  <big>Nationality = Nepali</big>
-  <br/>
-  <big>Education = +2 in Science</big>
-  <br/>
-  <big>Age = 16+</big>
-  <br/>
-  <big>Relationship Status = Single</big>
-  <br/>
-  <big>Family Members = 6 (Father, Mother, Elder sister, Younger sister, younger brother, Me )</big>
-  <br/>
-  <big> Skill = Exploring coding and web development</big>
-  <br/>
-  <big>Hobbies = Traveling to new places, Exploring, and learning new things</big>
-  <br/>
-  <big><b>Youtube  = </b></big>
-  <a href="https://youtube.com/@mset3.phylix3?si=SNJAsrbt7vINriBx"><big>Click here</big></a>
-  <br/>
-  <big><b>Tiktok  = </b></big>
-  <a href="https://www.tiktok.com/@mset3phylix3?is_from_webapp=1&sender_device=pc"><big>Click here</big></a>
-  <br/>
-  <big><b>Facebook = </b></big>
-  <a href="https://www.facebook.com/profile.php?id=61578375490304"><big>Click here</big></a>
-  <br/>
-  <big><b>Instagram = </b></big>
-  <a href="https://www.instagram.com/msetphylix33?igsh=d3Zlc215NDB3NnE1"><big>Click here</big></a>
-  <br/>
-  <big><b>X = </b></big>
-  <a href="https://x.com/3MsetPhylix3?t=6R_rsW09nJ_DI_f5dk_bNg&s=09"><big>Click here</big></a>
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('*')">×</button>
 
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="appendValue('-')">−</button>
 
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('+')">+</button>
 
-  <hr/>
-  <hr/>
-  <big><b>Friend 💑 = Lenux Phylix</b></big>
-  <br/>
-  <img src="/Lenux-photo.jpg.jpeg"alt="Friend Photo" height="200" />
-  <br/>
-  <hr/>
-  <hr/>
-  <big><b>Sisters 💑</b></big>
-  <br/>
-  <img src="/Saraswati and me-photo.jpg.jpeg"alt = "sisters" height="200" />
-  <img src="/saraswati-photo.jpg"alt = "sisters" height="200" />
-  <img src="/Krisha-photo2.jpg" alt = "sisters" height="200" />
-  <br/>
-  <hr/>
-  
-  <big><b>Brother 💑</b></big>
-  <br/>
-  <img src="/Ashok-photo.jpg.jpeg"alt = "Brother" height="200" />
-  <img src="/Ashok and me-photo.jpg" alt = "brother" height="200" />
-  <br/>
-  <hr/>
-  <hr/>
-  <hr/>
+      <button onclick="appendValue('0')">0</button>
+      <button onclick="appendValue('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="backspace()">⌫</button>
+    </div>
+    <div class="result-label">Mset Phylix</div>
+    <div id="result"></div>
+  </div>
 
-<big>Thank you 🙏 for visiting my personal website. I am always learning and growing, stay tuned for more updates. Feel free to explore and connect with me. This is just the beginning of my digital journy. Proud to share a glimpse of who i am.👋</big>
-<br/>
-<img src="/Mset Book-photo.jpg.jpeg"alt = "Mset photo" height="200" />
-<img src="/Mset-logo3.jpg"alt = "Mset photo" height="200" />
-<img src="/Mset and hacker-photo.jpg.jpeg"alt = "Mset photo" height="200" />
-<br/>
-<img src="/Mset-logo.jpg.jpeg"alt = "Mset photo" height="200" />
-<img src="/Mset-logo2.jpg"alt = "Mset photo" height="200" />
-<img src="/Mset-logo4.jpg"alt = "Mset photo" height="200" />
+  <script>
+    let expression = "";
 
+    function appendValue(value) {
+      expression += value;
+      document.getElementById("display").value = expression;
+    }
 
+    function clearDisplay() {
+      expression = "";
+      document.getElementById("display").value = "";
+      document.getElementById("result").innerText = "";
+    }
+
+    function backspace() {
+      expression = expression.slice(0, -1);
+      document.getElementById("display").value = expression;
+    }
+
+    function calculate() {
+      try {
+        let result = eval(expression);
+        document.getElementById("result").innerText = result;
+      } catch (error) {
+        document.getElementById("result").innerText = "Error";
+      }
+    }
+  </script>
 </body>
 </html>
